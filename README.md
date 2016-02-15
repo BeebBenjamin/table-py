@@ -2,7 +2,7 @@
 <p align="justify">table-py is a Python (2.7) wrapper and Arduino UNO driver for a Lego based photogrammetry machine!  The setup is basically a Lego motor driven by an Adafruit v1.2 motor shield; attached to an Arduino UNO and connected by serial/USB to a PC.  The wrapper is for utilising the program gphoto2 in order to control a digital SLR, which takes a picture of an object placed on the turn-table and then tells the motor to step via the Arduino.  In this way, a user can take pictures of a object around a fixed point for later use in photogrammetry software in order to build a 3D model of the chosen object.  Such a set up is useful as it frees up the user from having to aim the camera, or move the object themselves, potentially saving both time and improving overall consistency.</p>
 
 ##Build Instructions (for the actual machine)
-<p align="justify">Build instructions for the actual machine can be found on Instructables here... a BOM can also be found in this repository on GitHub <a href="https://github.com/BeebBenjamin/table-py/edit/master/BOM.xlsx">here</a></p>
+<p align="justify">Build instructions for the actual machine can be found on Instructables here.  A BOM can also be found in this repository on GitHub <a href="https://github.com/BeebBenjamin/table-py/edit/master/BOM.xlsx">here</a></p>
 
 ##Software
 table-py consists of a python wrapper and Arduino firmware that makes use of a number of third party libraries/programs that need to be installed on your computer for it to work correctly and these are listed below:
