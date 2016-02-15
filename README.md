@@ -1,0 +1,61 @@
+# table-py
+<p align="justify">table-py is a Python (2.7) wrapper and Arduino UNO driver for a Lego based photogrammetry machine!  The setup is basically a Lego motor driven by an Adafruit v1.2 motor shield; attached to an Arduino UNO and connected by serial/USB to a PC.  The wrapper is for utilising the program gphoto2 in order to control a digital SLR, which takes a picture of an object placed on the turn-table and then tells the motor to step via the Arduino.  In this way, a user can take pictures of a object around a fixed point for later use in photogrammetry software in order to build a 3D model of the chosen object.  Such a set up is useful as it frees up the user from having to aim the camera, or move the object themselves, potentially saving both time and improving overall consistency.</p>
+
+##Build Instructions (for the actual machine)
+<p align="justify">Build instructions for the actual machine can be found on Instructables here... a BOM can also be found in this repository on GitHub here...</p>
+
+##Software Dependencies
+table-py has a number of dependencies that need to be installed for it to work correctly and these are listed below:
+
+###Arduino dependencies
+
+AFMotor.h (library) obtained from GitHub <a href="https://github.com/adafruit/Adafruit-Motor-Shield-library/zipball/master">here</a>.
+
+###Python dependencies
+
+python2.7 (installation) obtained from <a href="https://www.python.org/download/releases/2.7/">here</a>.
+
+pyserial (module) obtained through apt (Advanced Package Tool) for Linux or from GitHub 
+<a href="https://github.com/pyserial/pyserial/zipball/master">here</a>.
+
+###External dependencies
+
+gphoto2 (program) obtained through apt (Advanced Package Tool) for Linux or from GitHub
+<a href="https://github.com/gphoto/gphoto2/zipball/master">here</a>.  It can be a real pain getting things like this onto a Mac, however, I believe gphoto is available on "Macports" which has saved my bacon before.
+
+##Instructions of Use
+
+Once you have built the machine and have all of these packages/libraries installed follow the instructions below in order to control your setup!
+
+<p align="justify">Using the Ardunio IDE (after you have installed the AFMotor library) copy and paste the code in table-py.ino into the code window and save with whatever name you like.  Then with your Ardunio board (UNO) connected via a USB cable press upload.  You shouldn't get any error messages if you have the required library installed.  To test it's working you can open the serial monitor and type a 'M' this should tell the firmware to start stepping.  The table will keep on stepping every few seconds until you type in a 'N' into the serial monitor.  Try this now.</p>
+
+<p align="justify">Next attach you digital SLR camera via a USB cable and unmount it if using Linux, on a Mac this is done in the terminal using the command "killall PTPCamera".  N.B. I have only tested this with a Canon EOS 30D on Ubuntu and would appreciate feedback on another camera/OS.  I do know that cameras which are PTP only e.g. Canon Powershot cameras etc will not work with gphoto2 using their native firmware and an alternative program using CHDK and the PTP extension needs to be used.  As such my current setup won't work for you. Yet.  A list of cameras supported by gphoto2 can be found <a href="http://gphoto.sourceforge.net/proj/libgphoto2/support.php">here</a>.</p>
+
+<p align="justify">If you have installed the pyserial module and Python 2.7 and have your Python path set correctly (particularly an issue in Windows) then you can browse to where your python script is located using the terminal and type the following command: "python table-py.py" in order to run the turn-table "in default mode" (camera active and the motor will step 35 times taking 35 pictures).  Please note that it is possible to make use of the following "flags" inorder to change those default settings:  
+
+"--o" (override) will allow you to enter a user defined number of times you wish the table to turn and take a photo.
+
+"--c" (camera off) will allow you to turn off gphoto2 and just make use of the turn-table, should you so wish.
+
+These flags are entered as follows: python table-py.py --o --c in any combination depending on what you want to do.
+
+The user will also be asked before the run to define a custom name to label photos with, if you care about this sort of thing (if nothing is entered table-py will use the camera defaults).  If all goes well, the table will turn and take a photo the number of times specified.  Then at the end of the run the photos will be transfered to the directory the script is running from with the user specified labels.</p>
+
+##Trouble Shooting
+
+###Camera specific Issues
+
+Here are some things to check out if you get the "There seems to be an issue communicating with your camera" error. 
+Check the camera is unmounted.
+
+Check the USB is plugged in.
+
+Check that the battery is working and charged.
+
+Check your camera model is compatible with gphoto2.
+
+Some cameras need to have "Normal" or "PC communication" activated and not "Print/PTP" in order to work with gphoto2.
+
+###Arduino Issues
+
+<p align="justify">If the motor doesn't step check which motor slot it is attached to.  The firmware specifies "M4" of the Adafruit v1.2 motor shield as the default.  You may change this if you want to.</p>
