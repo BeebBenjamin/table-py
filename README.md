@@ -1,29 +1,29 @@
-# table-py
+<h1> Introduction to table-py</h2>
 <p align="justify">table-py is a Python (2.7) wrapper and Arduino UNO driver for a Lego based or completely 3D printable photogrammetry machine!  The setup is basically a stepper motor driven by an Adafruit v1.0 or v2.0 motor shield; attached to an Arduino UNO and connected by serial/USB to a PC.  The wrapper is for utilising the program gphoto2 in order to control a digital SLR, which takes a picture of an object placed on the turn-table and then tells the motor to step via the Arduino.  In this way, a user can take pictures of a object around a fixed point for later use in photogrammetry software in order to build a 3D model of the chosen object.  Such a set up is useful as it frees up the user from having to aim the camera, or move the object themselves, potentially saving both time and improving overall consistency.</p>
 
-##Build Instructions (for the actual machine)
+<h2>Build Instructions (for the actual machine)</h2>
 <p align="justify">Build instructions for the Lego machine are not available, however, the Lego Digital Designer file is included <a href="https://github.com/BeebBenjamin/table-py/blob/master/parts/lego%20parts/turn-table-m3.lxf">here</a> and can therefore be reverse engineered using Lego Digital Designer (available from www.Lego.com).  A BOM can also be found in this repository on GitHub <a href="https://github.com/BeebBenjamin/table-py/edit/master/BOM.xlsx">here</a></p>
 
-##Software
+<h2>Software</h2>
 table-py consists of a python wrapper and Arduino firmware that makes use of a number of third party libraries/programs that need to be installed on your computer for it to work correctly and these are listed below:
 
-###Arduino libraries
+<h3>Arduino libraries</h3>
 
 AFMotor.h (library) obtained from GitHub <a href="https://github.com/adafruit/Adafruit-Motor-Shield-library/zipball/master">here</a>.
 
-###Python modules
+<h3>Python modules</h3>
 
 python2.7 (installation) obtained from <a href="https://www.python.org/download/releases/2.7/">here</a>.
 
 pyserial (module) obtained through apt (Advanced Package Tool) for Linux or from GitHub 
 <a href="https://github.com/pyserial/pyserial/zipball/master">here</a>.
 
-###External programs
+<h3>External programs</h3>
 
 gphoto2 (program) obtained through apt (Advanced Package Tool) for Linux or from GitHub
 <a href="https://github.com/gphoto/gphoto2/zipball/master">here</a>.  It can be a real pain getting things like this onto a Mac, however, I believe gphoto is available on "Macports" which has saved my bacon before.
 
-##Instructions of Use
+<h2>Instructions of Use</h2>
 
 Once you have built the machine and have all of these packages/libraries installed follow the instructions below in order to control your setup!
 
@@ -41,9 +41,9 @@ These flags are entered as follows: python table-py.py --o --c in any combinatio
 
 The user will also be asked before the run to define a custom name to label photos with, if you care about this sort of thing (if nothing is entered table-py will use the camera defaults).  If all goes well, the camera will take a test photo and the table will turn and take a photo the number of times specified.  Then at the end of the run the photos will be transfered to the directory the script is running from with the user specified labels.</p>
 
-##Trouble Shooting
+<h2>Trouble Shooting</h2>
 
-###Camera specific Issues
+<h3>Camera specific Issues</h3>
 
 Here are some things to check out if you get the "There seems to be an issue communicating with your camera" error. 
 Check the camera is unmounted.
@@ -56,6 +56,6 @@ Check your camera model is compatible with gphoto2.
 
 Some cameras need to have "Normal" or "PC communication" activated and not "Print/PTP" in order to work with gphoto2.
 
-###Arduino Issues
+<h3>Arduino Issues</h3>
 
 <p align="justify">If the motor doesn't step check which motor slot it is attached to.  The firmware specifies "M4" of the Adafruit v1.2 motor shield as the default.  You may change this if you want to.</p>
