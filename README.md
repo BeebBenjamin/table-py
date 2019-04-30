@@ -47,13 +47,13 @@ The user will also be asked before the run to define a custom name to label phot
 
 Here are some things to check out if you get the "There seems to be an issue communicating with your camera" error. 
 
-Check the camera is unmounted.
+1. Check the camera is unmounted.
 
-Check the USB is plugged in.
+2. Check the USB is plugged in.
 
-Check that the battery is working and charged.
+3. Check that the battery is working and charged.
 
-Check your camera model is compatible with gphoto2.
+4. Check your camera model is compatible with gphoto2.
 
 Some cameras need to have "Normal" or "PC communication" activated and not "Print/PTP" in order to work with gphoto2.
 
