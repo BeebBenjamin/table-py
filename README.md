@@ -46,6 +46,7 @@ The user will also be asked before the run to define a custom name to label phot
 <h3>Camera specific Issues</h3>
 
 Here are some things to check out if you get the "There seems to be an issue communicating with your camera" error. 
+
 Check the camera is unmounted.
 
 Check the USB is plugged in.
