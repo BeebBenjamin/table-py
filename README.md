@@ -7,18 +7,16 @@
 <h2>Software</h2>
 table-py consists of a python wrapper and Arduino firmware that makes use of a number of third party libraries/programs that need to be installed on your computer for it to work correctly and these are listed below:
 
-<h3>Arduino libraries</h3>
+<h3>Arduino Libraries</h3>
 
 AFMotor.h (library) obtained from GitHub <a href="https://github.com/adafruit/Adafruit-Motor-Shield-library/zipball/master">here</a>.
 
-<h3>Python modules</h3>
-
-python2.7 (installation) obtained from <a href="https://www.python.org/download/releases/2.7/">here</a>.
+<h3>Third Party Python Modules</h3>
 
 pyserial (module) obtained through apt (Advanced Package Tool) for Linux or from GitHub 
 <a href="https://github.com/pyserial/pyserial/zipball/master">here</a>.
 
-<h3>External programs</h3>
+<h3>External Programs</h3>
 
 gphoto2 (program) obtained through apt (Advanced Package Tool) for Linux or from GitHub
 <a href="https://github.com/gphoto/gphoto2/zipball/master">here</a>.  It can be a real pain getting things like this onto a Mac, however, I believe gphoto is available on "Macports".
@@ -41,7 +39,7 @@ These flags are entered as follows: python table-py.py --o --c in any combinatio
 
 The user will also be asked before the run to define a custom name to label photos with, if you care about this sort of thing (if nothing is entered table-py will use the camera defaults).  If all goes well, the camera will take a test photo and the table will turn and take a photo the number of times specified.  Then at the end of the run the photos will be transfered to the directory the script is running from with the user specified labels.</p>
 
-<h2>Trouble Shooting</h2>
+<h2>Troubleshooting</h2>
 
 <h3>Camera specific Issues</h3>
 
