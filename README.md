@@ -5,7 +5,7 @@
 <p align="justify">Build instructions for the Lego machine are not available, however, the Lego Digital Designer file is included <a href="https://github.com/BeebBenjamin/table-py/blob/master/parts/lego%20parts/turn-table-m3.lxf">here</a> and can therefore be reverse engineered using Lego Digital Designer (available from www.Lego.com).  A BOM can also be found in this repository on GitHub <a href="https://github.com/BeebBenjamin/table-py/edit/master/BOM.xlsx">here</a>.</p>
 
 <h2>Software</h2>
-table-py consists of a python wrapper and Arduino firmware that makes use of a number of third party libraries/programs that need to be installed on your computer for it to work correctly and these are listed below:
+table-py consists of a python wrapper and Arduino firmware that makes use of a number of third party libraries, modules, and programs that need to be installed on your computer for it to work correctly and these are listed below:
 
 <h3>Arduino Libraries</h3>
 
