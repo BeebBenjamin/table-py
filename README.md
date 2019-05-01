@@ -18,7 +18,7 @@ pyserial (pip install pyserial) or from GitHub <a href="https://github.com/pyser
 <h3>External Programs</h3>
 
 gphoto2 (program) obtained through apt (Advanced Package Tool) for Linux or from GitHub
-<a href="https://github.com/gphoto/gphoto2/zipball/master">here</a>.  It can be a real pain getting things like this onto a Mac, however, I believe gphoto is available on "Macports".
+<a href="https://github.com/gphoto/gphoto2/zipball/master">here</a>.  It can be a real pain getting things like this onto a Mac, however, gphoto may be available through 'Macports'.
 
 <h2>Instructions of Use</h2>
 
