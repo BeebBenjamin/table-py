@@ -6,7 +6,7 @@ import serial, sys, os, subprocess, time, atexit
 #import all non-native modules including: distance, biopython and numpy
 from serial import SerialException
 
-main():	
+def main():	
 	#try until user uses a keyboard interrupt
 	try:
 		#function send a motor off signal to the arduino upon exiting
