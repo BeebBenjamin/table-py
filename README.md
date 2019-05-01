@@ -11,7 +11,7 @@ table-py consists of a python wrapper and Arduino firmware that makes use of a n
 
 AFMotor.h (library) obtained from GitHub <a href="https://github.com/adafruit/Adafruit-Motor-Shield-library/zipball/master">here</a>.
 
-<h3>Third Party Python Libraries</h3>
+<h3>Third Party Python Modules</h3>
 
 pyserial (pip install pyserial) or from GitHub <a href="https://github.com/pyserial/pyserial/zipball/master">here</a>.
 
