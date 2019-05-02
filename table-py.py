@@ -87,8 +87,7 @@ def main():
                 # loop until user gives correct answer
                 while True:
                     # ask user to define how many seconds they want to wait between each step (to simulate presence of a camera)
-                    time_interval = raw_input(
-                        "\nHow many seconds would you like inbetween each step? ")
+                    time_interval = raw_input("\nHow many seconds would you like inbetween each step? ")
 
                     # try to convert the answer given by the user to a integer
                     try:
@@ -108,8 +107,7 @@ def main():
                     while True:
 
                         # ask for user to choose between a 5v or a 12v motor by typing a 1 or a 2
-                        motor_type = raw_input(
-                            "\nWhat type of motor are you using (e.g. 1 for 5v, 2 for 12v)? ")
+                        motor_type = raw_input("\nWhat type of motor are you using (e.g. 1 for 5v, 2 for 12v)? ")
 
                         # if answer isn't a 1 or a 2 ask again for correct input
                         if motor_type not in ['1', '2']:
@@ -121,15 +119,13 @@ def main():
                     print ""
 
                     # ask for user to define a unique sample code for each set of photos
-                    institution_ID = raw_input(
-                        "What is the institutional code and unique id for this specimen (e.g. NMBE_XXXX)? ")
+                    institution_ID = raw_input("What is the institutional code and unique id for this specimen (e.g. NMBE_XXXX)? ")
 
                     # terminal text spacer to make terminal more readable
                     print ""
 
                     # ask user to confirm their choice of sample code
-                    confirmation = raw_input(
-                        "Are you sure you wish to use this ID#: " + institution_ID + "?  Type y/n: ")
+                    confirmation = raw_input("Are you sure you wish to use this ID#: " + institution_ID + "?  Type y/n: ")
 
                     # if the user confirms move on
                     if confirmation == "y":
@@ -154,8 +150,7 @@ def main():
                     print ""
 
                     # ask user to confirm their choice of side
-                    confirmation = raw_input(
-                        "Are you sure you want to use this position: " + position + "?  Type y/n: ")
+                    confirmation = raw_input("Are you sure you want to use this position: " + position + "?  Type y/n: ")
 
                     # if the user confirms move on
                     if confirmation == "y":
@@ -295,8 +290,7 @@ def main():
 
                     # if number of rounds is not equal to 3 (index 0) then keep asking user for input each round
                     if i != 2:
-                        continue_run = raw_input(
-                            "Run " + str(i+1) + " of 3 complete, please reposition the camera, type 'y' and enter to confirm or 'n' to cancel and stop the run. ")
+                        continue_run = raw_input("Run " + str(i+1) + " of 3 complete, please reposition the camera, type 'y' and enter to confirm or 'n' to cancel and stop the run. ")
 
                         # check if user has used a 'y' or an 'n'
                         if continue_run != 'y':
