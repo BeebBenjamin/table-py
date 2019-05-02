@@ -6,9 +6,24 @@ import serial, sys, os, subprocess, time, atexit
 #import all non-native modules including: distance, biopython and numpy
 from serial import SerialException
 
-def exit_handler():
+def exit_handler(serial_name):
+	"""In the event of the user interrupting the program using a 'ctrl + c' command
+	   or 'keyboard interrupt', this function will attempt to send the off command
+	   'N' to the arduino in order to switch off the motors and give feedback to the
+	   user if the off command was written to the USB serial port.
+	   
+	   Args:
+			serial_name (str): The name of the serial port as defined in main()
+			
+	   Returns:
+			N/A
+	"""
+	#define a serial object using serial_name and connect at the baud rate in use by the arduino
 	ser = serial.Serial(serial_name, 9600)
+	#write an 'N' character to the serial buffer
 	ser.write('N')
+	
+	#print a message to the terminal telling the user the program is now closing
 	print "\n\nApplication terminating, closing down motor, Goodbye!\n"
 
 def main():	
@@ -87,7 +102,7 @@ def main():
 							print "\nPlease select only a '1' or a '2'"
 						else:
 							break
-
+							
 					#terminal text spacer to make terminal more readable
 					print ""
 					
@@ -103,15 +118,14 @@ def main():
 					#if the user confirms move on
 					if confirmation == "y":
 						
-						#terminal text spacer
+						##terminal text spacer to make terminal more readable
 						print ""
-
 						break
 						
 					#if the user rejects ask for input again
 					elif confirmation == "n":
 						
-						#terminal text spacer
+						##terminal text spacer to make terminal more readable
 						print ""
 				
 				#loop until the user defines if the sample being photographed is the dorsal or ventral side
@@ -120,7 +134,7 @@ def main():
 					#ask user to use a 'd' or a 'v' to select dorsal or ventral 
 					position = raw_input("Dorsal or Ventral?  Type d/v: ")
 					
-					#terminal text spacer
+					##terminal text spacer to make terminal more readable
 					print ""
 					
 					#ask user to confirm their choice of side
@@ -131,7 +145,6 @@ def main():
 						
 						#if dorsal selected set position variable to "DORSAL"
 						if position == "d":
-
 							position = "DORSAL"
 							break
 							
@@ -148,7 +161,7 @@ def main():
 					#if the user rejects ask for input again
 					elif confirmation == "n":
 						
-						#terminal text spacer
+						##terminal text spacer to make terminal more readable
 						print ""
 
 				#flag camera as in user
@@ -173,8 +186,6 @@ def main():
 			else:
 
 				print "Running program in default mode: of 35 photos and steps.\n\nIf you require more per revolution include the flag '--o'.\n\nIf you want to turn off the camera include '--c'.\n"
-
-
 
 			#define gphoto2 command to capture images
 			cmd = ['gphoto2','--auto-detect','--capture-image','--keep']
@@ -207,7 +218,7 @@ def main():
 								#use subprocess to run the gphoto2 terminal program shelless and pass it the command list defined above and the working directory 
 								subprocess.check_output(cmd,cwd=working_directory)
 								
-								#terminal text spacer
+								##terminal text spacer to make terminal more readable
 								print ""
 
 								print "Camera works, runing through iterations now!\n"
@@ -217,16 +228,16 @@ def main():
 							
 							#if the subprocess fails tell the user and exit the program
 							except:
-
+								
 								print "/nThere seems to be an issue communicating with your camera, please check it is plugged in, the battery is charged, it is unmounted, and a supported model for gphoto2!\n"
-
+								
 								break
 						
 						#use subprocess to run the gphoto2 terminal program shelless and pass it the command list defined above and the working directory 
 						process = subprocess.Popen(cmd,cwd=working_directory)
-
+						
 						output = process.communicate()[0]
-
+						
 						time.sleep(0.25)
 
 						print output
