@@ -11,7 +11,7 @@ import subprocess
 import time
 import atexit
 
-# import all non-native modules including: distance, biopython and numpy
+# import SerialException class from non-native module: serial
 from serial import SerialException
 
 
