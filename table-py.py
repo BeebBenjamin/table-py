@@ -6,15 +6,14 @@ import serial, sys, os, subprocess, time, atexit
 #import all non-native modules including: distance, biopython and numpy
 from serial import SerialException
 
+def exit_handler():
+	ser = serial.Serial(serial_name, 9600)
+	ser.write('N')
+	print "\n\nApplication terminating, closing down motor, Goodbye!\n"
+
 def main():	
 	#try until user uses a keyboard interrupt
-	try:
-		#function send a motor off signal to the arduino upon exiting
-		def exit_handler():
-			ser = serial.Serial(serial_name, 9600)
-			ser.write('N')
-			print "\n\nApplication terminating, closing down motor, Goodbye!\n"
-		
+	try:	
 		#register the exit_handler function to exit event
 		atexit.register(exit_handler)
 		
@@ -37,51 +36,39 @@ def main():
 				
 				#loop until user gives correct answer
 				while True:
-					
 					#ask user to define how many pictures they need per 360 degs via the terminal
 					iterations = raw_input("\nHow many iterations do you need? ")
 					
 					#try to convert the answer given by the user to a integer
 					try:
-						
 						iterations = int(iterations)
-
 						break
 					
 					#if variable isnt convertable to an integer ask again for correct input
 					except:
-
 						print "\nThis is not an integer (whole number), please type in an integer value!\n"
 
 			#otherwise use the default value.
 			else:
-
 				iterations = 38
-
-
 
 			#if there is an override '--c' flag then the user will be prompted for the number of seconds they want the delay to be between each step and photo.  The camera will turn off and the table will just turn with the object on.
 			if "--c" in options:
-				
 				#do not use the camera
 				camera_override = True
 				
 				#loop until user gives correct answer
 				while True:
-					
 					#ask user to define how many seconds they want to wait between each step (to simulate presence of a camera)
 					time_interval = raw_input("\nHow many seconds would you like inbetween each step? ")
 					
 					#try to convert the answer given by the user to a integer
 					try:
-
 						time_interval = int(time_interval)
-
 						break
 						
 					#if variable isnt convertable to an integer ask again for correct input
 					except:
-
 						print "\nThis is not an integer (whole number), please type in an integer value!\n"
 
 			#otherwise assume a camera is attached!
@@ -101,13 +88,13 @@ def main():
 						else:
 							break
 
-					#terminal text spacer
+					#terminal text spacer to make terminal more readable
 					print ""
 					
 					#ask for user to define a unique sample code for each set of photos
 					institution_ID = raw_input("What is the institutional code and unique id for this specimen (e.g. NMBE_XXXX)? ")
 					
-					#terminal text spacer
+					#terminal text spacer to make terminal more readable
 					print ""
 					
 					#ask user to confirm their choice of sample code
