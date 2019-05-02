@@ -1,5 +1,8 @@
 #!/usr/bin/python2
-
+"""
+    Todo: 
+        make the nested ifs more human readable by moving them to functions
+"""
 # import all python 2.7 native modules
 import serial
 import sys
